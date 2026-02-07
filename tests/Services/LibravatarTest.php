@@ -451,10 +451,11 @@ class Services_LibravatarTest extends PHPUnit_Framework_TestCase
 
     protected function loadSLMock()
     {
-        $this->sl = $this->getMock('Services_Libravatar', array('srvGet'));
-        $this->sl->expects($this->once())
-            ->method('srvGet')
-            ->will($this->returnValue('example.org'));
+        //$this->sl = $this->getMock('Services_Libravatar', array('srvGet'));
+        //$this->sl->expects($this->once())->method('srvGet')->will($this->returnValue('example.org'));
+
+        $this->sl = $this->getMockBuilder(Services_Libravatar::class)->onlyMethods(array('srvGet'))->getMock();
+        $this->sl->expects($this->once())->method('srvGet')->will($this->returnValue('example.org'));
     }
 }
 
