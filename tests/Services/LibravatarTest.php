@@ -1,6 +1,10 @@
 <?php
 require_once 'Services/Libravatar.php';
 
+if (!class_exists('PHPUnit_Framework_TestCase')) {
+    class_alias('PHPUnit\Framework\TestCase', 'PHPUnit_Framework_TestCase');
+}
+
 class Services_LibravatarTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
