@@ -455,7 +455,7 @@ class Services_LibravatarTest extends PHPUnit_Framework_TestCase
         //$this->sl->expects($this->once())->method('srvGet')->will($this->returnValue('example.org'));
 
         $this->sl = $this->getMockBuilder(Services_Libravatar::class)->setMethods(array('srvGet'))->getMock();
-        $this->sl->expects($this->once())->method('srvGet')->will($this->sl->returnValue('example.org'));
+        $this->sl->expects($this->once())->method('srvGet')->will($this->returnValue('example.org'));
     }
 }
 
