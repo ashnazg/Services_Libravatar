@@ -1,9 +1,13 @@
 <?php
 require_once 'Services/Libravatar.php';
 
+if (!class_exists('PHPUnit_Framework_TestCase')) {
+    class_alias('PHPUnit\Framework\TestCase', 'PHPUnit_Framework_TestCase');
+}
+
 class Services_LibravatarTest extends PHPUnit_Framework_TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         $this->sl = new Services_Libravatar();
     }
@@ -447,10 +451,11 @@ class Services_LibravatarTest extends PHPUnit_Framework_TestCase
 
     protected function loadSLMock()
     {
-        $this->sl = $this->getMock('Services_Libravatar', array('srvGet'));
-        $this->sl->expects($this->once())
-            ->method('srvGet')
-            ->will($this->returnValue('example.org'));
+        //$this->sl = $this->getMock('Services_Libravatar', array('srvGet'));
+        //$this->sl->expects($this->once())->method('srvGet')->will($this->returnValue('example.org'));
+
+        $this->sl = $this->getMockBuilder(Services_Libravatar::class)->setMethods(array('srvGet'))->getMock();
+        $this->sl->expects($this->once())->method('srvGet')->will($this->returnValue('example.org'));
     }
 }
 
