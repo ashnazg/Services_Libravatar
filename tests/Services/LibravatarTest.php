@@ -7,7 +7,7 @@ if (!class_exists('PHPUnit_Framework_TestCase')) {
 
 class Services_LibravatarTest extends PHPUnit_Framework_TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         $this->sl = new Services_Libravatar();
     }
